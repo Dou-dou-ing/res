@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="zh_TW">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- 设置自动刷新页面 -->
+    <title>nCheck办公网--屏蔽記錄查詢</title>
+    <link rel="shortcut icon" type="image/x-icon" href="./img/home/sy_xj.ico">
+    <link href="css/style.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/bootstrap-table.min.css">
+    <style>
+        body,
+        input,
+        .help-block {
+            /* color: #fff; */
+            text-shadow: 0 0 3px rgba(255, 255, 255, 0.4);
+        }
+
+        a {
+            color: #fff;
+        }
+
+        table tr,
+        table tr,
+        td {
+            color: black;
+            text-shadow: 0 0 3px rgba(255, 255, 255, 0.4);
+        }
+
+        table {
+            height: 30px !important;
+            white-space: nowrap;
+            overflow: hidden;
+        }
+    </style>
+</head>
+
+<body id="skin-blur-violate">
+    <div id="app">
+        <header id="header" class="media">
+            <a href="" id="menu-toggle"></a>
+            <a class="logo pull-left" href="index.html">CCTV_nCheck監控系統</a>
+            <!-- 時間顯示 -->
+        </header>
+        <!-- 左側菜單欄位位置控制 -->
+        <div class="clearfix"></div>
+        <section id="main" class="p-relative" role="main">
+
+            <!-- 內容定位 -->
+            <section id="content" class="container">
+                <!-- Breadcrumb -->
+                <h4 class="page-title"><a href="query_special_protection.html">屏蔽記錄查詢</a></h4>
+                <div class="block-area shortcut-area">
+                    <a class="shortcut tile" href="index.html">
+                        <img src="img/home/首页c.png" alt="首頁">
+                        <!-- <div id="untreated" style="height: 50px;width:100%;"></div> -->
+                        <small class="t-overflow">首頁</small>
+                    </a>
+                    <a class="shortcut tile" href="untreated.html">
+                        <img src="img/home/未处理2.png" alt="">
+                        <!-- <div id="untreated" style="height: 50px;width:100%;"></div> -->
+                        <small class="t-overflow">未處理</small>
+                    </a>
+                    <a class="shortcut tile" href="in_hand.html">
+                        <img src="img/home/处理中1.png" alt="">
+                        <small class="t-overflow">處理中</small>
+                    </a>
+                    <a class="shortcut tile" href="wait_over.html">
+                        <img src="img/home/等待.png" alt="">
+                        <small class="t-overflow">待結案</small>
+                    </a>
+                    <!-- <a class="shortcut tile" href="query_overflile.html"> -->
+                    <a class="shortcut tile" href="query_overflile.html">
+                        <img src="img/home/異常記錄.png" alt="">
+                        <small class="t-overflow">結案數據查詢</small>
+                    </a>
+                    <!-- <a class="shortcut tile" href="query_special_protection.html"> -->
+                    <a class="shortcut tile" href="query_special_protection.html">
+                        <img src="img/home/屏蔽記錄.png" alt="">
+                        <small class="t-overflow">屏蔽記錄查詢</small>
+                    </a>
+                </div>
+
+                <table id="table_qsp"></table>
+
+            </section>
+        </section>
+    </div>
+    <script src="js/charts/jquery-3.4.1.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/bootstrap-table.js"></script>
+    <script src="js/select.min.js"></script>
+    <script src="js/query_s_p.js"></script>
+    <script src="js/bootstrap/bootstrap-table-zh-TW.min.js"></script>
+    <script src="js/bootstrap/FileSaver.js"></script>
+    <script src="js/bootstrap/xlsx.mini.js"></script>
+    <script src="js/bootstrap/tableExport.js"></script>
+    <script src="js/bootstrap/bootstrap-table-export.js"></script>
+    <script src="js/bootstrap/jquery.base64.js"></script>
+
+</body>
+
+</html>

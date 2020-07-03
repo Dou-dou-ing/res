@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="zh_TW">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>nCheck办公网--首页</title>
+    <!-- 樣式 -->
+    <!--if lt IE9-->
+    <!-- <script type="text/javascript"> 
+        document.write("<div style='position:fixed;top:0;left:0;right:0;buttom:0;z-index:100;width:100%;height: 100%; padding-top: 200px; background-color:blue;color:red;'><p style='font-size: 50px; text-align:center;'>由于部分控件IE不支持，请使用谷歌浏览器进行访问；</p><p style='font-size: 50px; text-align:center;'>使用IE浏览器访问则会出现无数据的情况，请使用谷歌浏览器进行访问</p></div>")
+    </script> -->
+    <!--[endif]-->
+    <link rel="shortcut icon" type="image/x-icon" href="./img/home/sy_xj.ico">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    <link href="css/icons.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/condition.css">
+    <!-- 界面引入echarts.js圖形化顯示插件 -->
+    <script src="js/charts/jquery-3.4.1.js"></script>
+    <!-- echarts組件 图形界面组件 -->
+    <script src="js/echarts.js"></script>
+    <!-- //打开页面的时候保存票据信息
+            var UserName = '@ViewBag.UserName';
+            var Ticket = '@ViewBag.Ticket'; -->
+    <style>
+        body,
+        input,
+        .help-block {
+            color: #fff;
+            text-shadow: 0 0 3px rgba(255, 255, 255, 0.4);
+        }
+        h5{
+            color: #ffff00;
+            padding: 0;
+            margin: 0;
+        }
+        a {
+            color: #fff;
+        }
+
+        table tr,
+        td {
+            color: black;
+            text-shadow: 0 0 3px rgba(255, 255, 255, 0.4);
+        }
+    </style>
+
+</head>
+
+<body id="skin-blur-violate">
+    <header id="header" class="media">
+        <a href="" id="menu-toggle"></a>
+        <a class="logo pull-left" href="index.html"><b>CCTV_nCheck監控系統</b></a>
+        <!-- <div>当前登录用户：'@ViewBag.UserName'</div> -->
+        <!-- 時間顯示 -->
+        <!-- <div>
+                            <a href="" onclick="openwindow"><img src="" alt=""></a>
+                        </div>      
+                        <div id="date_time" class="pull-right"></div>       -->
+    </header>
+    <!-- 左側菜單欄位位置控制 -->
+    <div class="clearfix"></div>
+    <section id="main" class="p-relative" role="main">
+        <!-- 內容定位 -->
+        <!-- alert("<h3>尊敬的用户你好，目前您的浏览器版本过低请更换浏览器，为了提升您的体验推荐使用谷歌浏览器</h3>") -->
+        <section id="content" class="container">
+            <h4 class="page-title"><a href="index.html">首頁</a></h4>
+            <!-- <hr class="whiter" /> -->
+            <div class="block-area shortcut-area">
+                <a class="shortcut tile" href="index.html">
+                    <img src="img/home/首页c.png" alt="首頁">
+                    <!-- <div id="untreated" style="height: 50px;width:100%;"></div> -->
+                    <small class="t-overflow">首頁</small>
+                </a>
+                <a class="shortcut tile" href="untreated.html">
+                    <img src="img/home/未处理2.png" alt="">
+                    <!-- <div id="untreated" style="height: 50px;width:100%;"></div> -->
+                    <small class="t-overflow">未處理</small>
+                </a>
+                <a class="shortcut tile" href="in_hand.html">
+                    <img src="img/home/处理中1.png" alt="">
+                    <small class="t-overflow">處理中</small>
+                </a>
+                <a class="shortcut tile" href="wait_over.html">
+                    <img src="img/home/等待.png" alt="">
+                    <small class="t-overflow">待結案</small>
+                </a>
+                <!-- <a class="shortcut tile" href="query_overflile.html"> -->
+                <a class="shortcut tile" href="query_overflile.html">
+                    <img src="img/home/異常記錄.png" alt="">
+                    <small class="t-overflow">結案數據查詢查詢</small>
+                </a>
+                <!-- <a class="shortcut tile" href="query_special_protection.html"> -->
+                <a class="shortcut tile" href="query_special_protection.html">
+                    <img src="img/home/屏蔽記錄.png" alt="">
+                    <small class="t-overflow">屏蔽記錄查詢</small>
+                </a>
+            </div>
+            <div class="block-area shortcut-area">
+                <!-- 折線圖部分單獨 -->
+                <div class="graph shortcut_1 tile">
+                    <div class="trend_b">
+                            <span class="s_top">&nbsp;&nbsp;&nbsp;&nbsp;<h5>異常新增--異常結案趨勢圖</h5></span>
+                        <div id="trend" class="trend_c"></div>
+                    </div>
+                </div>
+                <!-- 20200618加入折线图 周-日 -->
+                <div class="graph shortcut_2 tile">
+                    <!-- <div class="trend_b1">
+                            <span class="s_top">&nbsp;&nbsp;&nbsp;&nbsp;<h5>異常新增--異常結案趨勢圖</h5></span>
+                        <div id="trend" class="trend_c1"></div>
+                    </div> -->
+                </div>
+                <!-- 扇形圖部分*3 -->
+                <div class="sector_s">
+                    <div class="sector_1 shortcut_1">
+                        <span class="s_top"><h5>異常類型分析圖(全部)近一年内数据</h5></span>
+                        <p></p>
+                        <div id="sector" class="sector_c"></div>
+                        <!-- <p style="text-align: center">異常類型近一年内数据</p> -->
+                    </div>
+                    <div class="sector_2 shortcut_1">
+                        <span class="s_top"><h5>異常類型分析(高清)近一年内数据</h5></span>
+                        <p></p>
+                        <div id="sector_l" class="sector_l"></div>
+                        <!-- <p style="text-align: center">異常類型(高清)近一年内数据</p> -->
+                    </div>
+                    <div class="sector_3 shortcut_1">
+                        <span class="s_top"><h5>異常類型分析(模擬)近一年内数据</h5></span>
+                        <p></p>
+                        <div id="sector_r" class="sector_r"></div>
+                        <!-- <p style="text-align: center">異常類型(模擬)近一年内数据</p> -->
+                    </div>
+                </div>
+                <!-- 扇形部分*2 -->
+                <!-- <div class="sector_x">
+                    <div class="sector_4 shortcut_1">
+                        <span class="s_top">異常原因分析  近一年内数据</span>
+                        <p></p>
+                        <div id="sector_a" class="sector_c"></div>
+                        <!-- <p style="text-align: center">異常遠因分析(維修)近一年内数据</p> --
+                    </div>
+                    <div class="sector_5 shortcut_1">
+                        <span class="s_top">維修單位佔比分析近一年内数据</span>
+                        <p></p>
+                        <div id="sector_b" class="sector_b"></div>
+                        <!-- <p style="text-align: center">維修單位近一年内数据</p> --
+                    </div>
+                    <div class="ew_post_3 shortcut_1">
+                        <span class="s_top">異常維修</span>
+                        <p></p>
+                        <div id="ew_post_2l"></div>
+                    </div>
+                </div>
+                </br>
+                <!-- 柱狀圖部分  柱狀圖*3 --
+                <div class="sector_z">
+                    <div class="ew_post_1 shortcut tile">
+                        <span class="s_top">異常時長統計</span>
+                        <p></p>
+                        <div id="ew_post_l"></div>
+                        <p></p>
+                    </div>
+                    <div class="ew_post_2 shortcut tile">
+                        <span class="s_top">異常頻率排行榜Top12(近一年數據)</span>
+                        <p></p>
+                        <div id="ew_post_r"></div>
+                        <p></p>
+                    </div>
+                </div> -->
+            </div>
+            <!-- echarts -->
+        </section>
+        <div  style="width:16px;height:16px;text-align:center;margin-top:0px;">
+        <H6><a href="">&nbsp;</a></H6>
+        </div>
+
+        <!-- Javascript Libraries -->
+        <!-- jQuery -->
+        <script src="js/jquery.min.js"></script> <!-- jQuery Library -->
+        <!-- <script src="js/jquery-ui.min.js"></script> jQuery UI -->
+        <script src="js/jquery.easing.1.3.js"></script> <!-- jQuery Easing - Requirred for Lightbox + Pie Charts-->
+        <!-- Bootstrap -->
+        <script src="js/bootstrap.min.js"></script>
+        <!-- Charts -->
+        <!-- All JS functions -->
+        <script src="js/functions.js"></script>
+        <script src="js/complete/index_c.js"></script>
+
+
+
+</body>
+
+</html>
